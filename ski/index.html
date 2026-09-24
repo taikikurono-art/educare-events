@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>雪遊び&スキーデビューツアー｜2026年12月26日(土)-27日(日)</title>
+<meta name="description" content="年中〜小学生対象、1泊2日の雪遊び&スキーデビューツアー。鹿島槍スキー場で、雪遊びだけ・スキーも雪遊びも・スキーだけの3プラン。2026年12月26日(土)〜27日(日)／主催 educare">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --snow:#F2F7FB;
+  --paper:#FFFFFF;
+  --mist:#E3EDF5;
+  --ink:#24323F;
+  --ink-soft:#56697B;
+  --ink-faint:#8A9BAA;
+  --blue:#2F76A8;
+  --blue-deep:#1F5B85;
+  --sky:#7FB6DC;
+  --ice:#CFE3F0;
+  --sun:#E9A13B;
+  --coral:#E06B52;
+  --line:#D6E4EF;
+  --radius:18px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:"Zen Maru Gothic",system-ui,sans-serif;
+  color:var(--ink);
+  background:var(--snow);
+  line-height:1.9;font-size:16px;
+  word-break:auto-phrase;line-break:strict;overflow-wrap:anywhere;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{max-width:100%;display:block;}
+a{color:inherit;}
+
+.wrap{max-width:900px;margin:0 auto;padding:0 20px;}
+section{padding:62px 0;}
+.sec-label{font-family:"Kaisei Decol",serif;font-size:13px;letter-spacing:.18em;color:var(--blue);margin:0 0 6px;}
+h2{font-family:"Kaisei Decol",serif;font-size:clamp(23px,4.6vw,31px);margin:0 0 10px;line-height:1.5;}
+h2 + .lead{color:var(--ink-soft);margin:0 0 30px;font-size:15px;}
+.h2-rule{width:52px;height:3px;border-radius:3px;background:var(--sky);margin:0 0 26px;}
+
+/* header */
+header.bar{position:sticky;top:0;z-index:50;background:rgba(242,247,251,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+.bar-in{max-width:900px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:12px;}
+.bar-title{font-family:"Kaisei Decol",serif;font-size:15px;line-height:1.35;}
+.bar-title small{display:block;font-family:"Zen Maru Gothic";font-size:11px;color:var(--ink-faint);letter-spacing:.04em;}
+.bar-cta{margin-left:auto;flex:none;background:var(--coral);color:#fff;text-decoration:none;font-size:14px;font-weight:700;padding:9px 18px;border-radius:999px;box-shadow:0 4px 12px rgba(224,107,82,.28);}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#F7FBFE 0%,#E3EDF5 100%);}
+.hero-artwrap{position:relative;}
+.hero-art{width:100%;height:auto;display:block;}
+.hero-artwrap::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:22px;background:linear-gradient(180deg,rgba(243,248,252,0) 0%,rgba(243,248,252,.92) 100%);pointer-events:none;}
+.hero-body{max-width:900px;margin:0 auto;padding:28px 20px 54px;text-align:center;}
+.hero-kicker{display:inline-block;font-size:13px;letter-spacing:.1em;color:var(--blue-deep);background:#fff;border:1px dashed var(--sky);border-radius:999px;padding:5px 16px;margin-bottom:16px;}
+.hero h1{font-family:"Kaisei Decol",serif;font-size:clamp(27px,6.6vw,46px);line-height:1.4;margin:0 0 14px;}
+.hero h1 em{font-style:normal;color:var(--blue);}
+.hero-sub{font-size:clamp(15px,3.4vw,18px);color:var(--ink-soft);margin:0 auto 26px;max-width:32em;}
+.facts{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:26px;}
+.fact{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:9px 15px;font-size:14px;}
+.fact b{color:var(--blue-deep);}
+.btn{display:inline-block;text-decoration:none;font-weight:700;background:var(--coral);color:#fff;padding:15px 40px;border-radius:999px;font-size:17px;box-shadow:0 8px 20px rgba(224,107,82,.3);}
+.btn.ghost{background:transparent;color:var(--blue-deep);border:2px solid var(--sky);box-shadow:none;padding:13px 30px;font-size:15px;}
+.btn-note{font-size:13px;color:var(--ink-faint);margin-top:12px;}
+
+/* joys */
+.joys{background:var(--paper);}
+.joy-grid{display:grid;gap:16px;grid-template-columns:repeat(3,1fr);}
+.joy{border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,#fff 0%,var(--snow) 100%);padding:24px 20px;text-align:center;}
+.joy .ico{margin:0 auto 12px;width:56px;height:56px;}
+.joy h3{font-family:"Kaisei Decol",serif;font-size:17px;margin:0 0 8px;color:var(--blue-deep);}
+.joy p{margin:0;font-size:14px;color:var(--ink-soft);line-height:1.8;}
+
+/* plans */
+.plan-grid{display:grid;gap:16px;grid-template-columns:repeat(3,1fr);margin-bottom:22px;}
+.plan{border:2px solid var(--line);border-radius:var(--radius);background:var(--paper);padding:22px 20px;position:relative;display:flex;flex-direction:column;}
+.plan.pick{border-color:var(--coral);}
+.plan .ribbon{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--coral);color:#fff;font-size:12px;font-weight:700;border-radius:999px;padding:3px 14px;white-space:nowrap;}
+.plan .num{font-family:"Kaisei Decol",serif;font-size:13px;color:var(--blue);letter-spacing:.1em;}
+.plan h3{font-family:"Kaisei Decol",serif;font-size:19px;margin:2px 0 10px;line-height:1.45;}
+.plan .from{font-size:13px;color:var(--ink-faint);}
+.plan .amt{font-family:"Kaisei Decol",serif;font-size:27px;color:var(--blue-deep);line-height:1.2;margin-bottom:10px;}
+.plan .amt span{font-size:14px;font-family:"Zen Maru Gothic";}
+.plan ul{margin:0;padding-left:1.15em;font-size:13.5px;color:var(--ink-soft);}
+.plan li{margin-bottom:5px;}
+.plan .age{margin-top:12px;font-size:12.5px;color:var(--ink-faint);border-top:1px dashed var(--line);padding-top:10px;}
+
+/* price table */
+.ptable{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;font-variant-numeric:tabular-nums;}
+.ptable th,.ptable td{padding:12px 14px;font-size:14px;border-bottom:1px solid var(--line);text-align:right;}
+.ptable th:first-child,.ptable td:first-child{text-align:left;}
+.ptable thead th{background:var(--mist);font-size:13px;color:var(--ink-soft);}
+.ptable tbody tr:last-child td{border-bottom:none;}
+.ptable td.hl{color:var(--blue-deep);font-weight:700;}
+.tscroll{overflow-x:auto;}
+.note{font-size:13px;color:var(--ink-faint);margin-top:12px;line-height:1.8;}
+
+/* option / discount */
+.rows{display:grid;gap:12px;margin-top:22px;}
+.row-card{display:flex;gap:14px;align-items:center;background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--sky);border-radius:14px;padding:15px 18px;}
+.row-card.disc{border-left-color:var(--sun);}
+.row-card .amtx{font-family:"Kaisei Decol",serif;font-size:19px;flex:none;color:var(--blue-deep);min-width:5.4em;}
+.row-card.disc .amtx{color:var(--sun);}
+.row-card p{margin:0;font-size:14px;}
+.row-card p small{display:block;font-size:12.5px;color:var(--ink-faint);}
+
+
+/* ---------- calculator ---------- */
+.calc{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;}
+.calc fieldset{border:none;margin:0 0 18px;padding:0;}
+.calc legend{font-size:13.5px;font-weight:700;color:var(--ink-soft);margin-bottom:9px;padding:0;}
+.chips{display:flex;flex-wrap:wrap;gap:8px;}
+.chips label{position:relative;}
+.chips input{position:absolute;opacity:0;width:0;height:0;}
+.chips span{
+  display:inline-block;cursor:pointer;font-size:14px;
+  background:var(--snow);border:2px solid var(--line);border-radius:999px;
+  padding:8px 16px;transition:.15s;
+}
+.chips input:checked + span{background:var(--blue);border-color:var(--blue);color:#fff;font-weight:700;}
+.chips input:focus-visible + span{outline:3px solid var(--coral);outline-offset:2px;}
+.chips input:disabled + span{opacity:.35;cursor:not-allowed;}
+.calc-out{background:var(--snow);border:2px solid var(--blue);border-radius:14px;padding:18px 20px;margin-top:4px;}
+.calc-lines{margin:0 0 12px;padding:0;list-style:none;font-size:14px;font-variant-numeric:tabular-nums;}
+.calc-lines li{display:flex;justify-content:space-between;gap:12px;padding:3px 0;color:var(--ink-soft);}
+.calc-lines li.base{color:var(--ink);font-weight:700;}
+.calc-lines li.minus{color:var(--sun);}
+.calc-total{display:flex;justify-content:space-between;align-items:baseline;border-top:2px dashed var(--line);padding-top:12px;gap:12px;}
+.calc-total .lbl{font-size:14px;font-weight:700;}
+.calc-total .val{font-family:"Kaisei Decol",serif;font-size:clamp(26px,6vw,34px);color:var(--coral);font-variant-numeric:tabular-nums;}
+.calc-note{font-size:12.5px;color:var(--ink-faint);margin:12px 0 0;line-height:1.75;}
+@media (max-width:760px){.calc{padding:20px 16px;}}
+
+/* lesson */
+.lesson{background:var(--paper);}
+.goal{display:grid;gap:12px;grid-template-columns:1fr 1fr;margin-top:18px;}
+.goal div{background:var(--snow);border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-size:14.5px;}
+.goal b{color:var(--blue-deep);}
+
+/* timeline */
+.day{margin-bottom:32px;}
+.day-head{display:flex;align-items:baseline;gap:10px;margin-bottom:14px;font-family:"Kaisei Decol",serif;}
+.day-head .badge{background:var(--blue-deep);color:#fff;font-size:12px;letter-spacing:.08em;border-radius:999px;padding:4px 13px;font-family:"Zen Maru Gothic";}
+.day-head .d{font-size:18px;}
+.tl{list-style:none;margin:0;padding:0 0 0 4px;position:relative;}
+.tl::before{content:"";position:absolute;left:62px;top:10px;bottom:10px;width:2px;background:repeating-linear-gradient(180deg,var(--ice) 0 5px,transparent 5px 11px);}
+.tl li{display:flex;gap:16px;align-items:flex-start;padding:7px 0;}
+.tl .t{flex:none;width:54px;text-align:right;font-size:14px;font-weight:700;color:var(--ink-soft);padding-top:1px;font-variant-numeric:tabular-nums;}
+.tl .dot{flex:none;width:11px;height:11px;border-radius:50%;background:var(--ice);border:2px solid var(--snow);margin-top:8px;position:relative;z-index:1;}
+.tl .c{font-size:15px;padding-top:1px;}
+.tl .c small{display:block;font-size:12.5px;color:var(--ink-faint);line-height:1.65;}
+.tl li.hl .dot{background:var(--blue);width:13px;height:13px;margin-top:7px;}
+.tl li.hl .c{font-weight:700;color:var(--blue-deep);}
+
+/* info */
+.info{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+.info .row{display:flex;border-bottom:1px solid var(--line);}
+.info .row:last-child{border-bottom:none;}
+.info dt{flex:none;width:136px;background:var(--mist);padding:14px 16px;font-size:13.5px;font-weight:700;color:var(--ink-soft);}
+.info dd{margin:0;padding:14px 18px;font-size:14.5px;flex:1;}
+.info dd small{display:block;font-size:12.5px;color:var(--ink-faint);margin-top:3px;line-height:1.7;}
+
+/* packing */
+.pack-grid{display:grid;gap:16px;grid-template-columns:1fr 1fr;}
+.pack{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px;}
+.pack h3{font-size:15px;margin:0 0 12px;display:flex;align-items:center;gap:8px;}
+.pack h3::before{content:"";width:10px;height:10px;border-radius:3px;background:var(--blue);}
+.pack.opt h3::before{background:var(--sky);}
+.pack ul{margin:0;padding-left:1.15em;font-size:14px;color:var(--ink-soft);}
+.pack li{margin-bottom:5px;}
+.callout{margin-top:16px;background:#FFF8EC;border:1px solid #F0DFC2;border-radius:14px;padding:16px 20px;font-size:13.5px;line-height:1.8;}
+.callout b{color:#B07A28;}
+
+/* personas */
+.persona{background:var(--paper);}
+.p-grid{display:grid;gap:16px;grid-template-columns:repeat(3,1fr);}
+.p-card{border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px;background:var(--snow);}
+.p-card .tagp{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--blue);border-radius:999px;padding:2px 12px;margin-bottom:10px;}
+.p-card h3{font-size:15.5px;margin:0 0 8px;line-height:1.5;}
+.p-card p{margin:0 0 10px;font-size:13.5px;color:var(--ink-soft);line-height:1.8;}
+.p-card .price{font-size:13.5px;background:var(--paper);border:1px dashed var(--sky);border-radius:10px;padding:9px 12px;}
+.p-card .price b{color:var(--coral);}
+
+/* faq */
+.faq{background:var(--snow);}
+details.q{border:1px solid var(--line);border-radius:14px;background:var(--paper);margin-bottom:10px;overflow:hidden;}
+details.q summary{list-style:none;cursor:pointer;padding:16px 46px 16px 18px;font-size:15px;font-weight:700;position:relative;}
+details.q summary::-webkit-details-marker{display:none;}
+details.q summary::after{content:"＋";position:absolute;right:18px;top:15px;color:var(--blue);font-weight:700;}
+details.q[open] summary::after{content:"−";}
+details.q .a{padding:0 18px 18px;font-size:14px;color:var(--ink-soft);line-height:1.85;}
+
+/* apply */
+.apply{text-align:center;background:linear-gradient(180deg,var(--snow) 0%,var(--mist) 100%);}
+.deadline{display:inline-block;background:var(--coral);color:#fff;font-size:14px;font-weight:700;border-radius:999px;padding:7px 20px;margin:12px 0 22px;}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0 8px;text-align:left;}
+.step{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px;}
+.step .sn{font-family:"Kaisei Decol",serif;font-size:13px;color:var(--blue);margin-bottom:4px;}
+.step p{margin:0;font-size:13.5px;color:var(--ink-soft);line-height:1.75;}
+.minnote{font-size:13px;color:var(--ink-faint);margin-top:22px;line-height:1.8;}
+
+footer{background:var(--ink);color:#D5E1EB;padding:34px 0 40px;font-size:13px;}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;justify-content:space-between;}
+footer .brand{font-family:"Kaisei Decol",serif;font-size:17px;color:#fff;letter-spacing:.06em;}
+footer .meta{color:#9DB0C0;line-height:1.9;}
+
+@media (max-width:760px){
+  section{padding:48px 0;}
+  .joy-grid,.plan-grid,.p-grid,.pack-grid,.goal,.steps{grid-template-columns:1fr;}
+  .info .row{flex-direction:column;}
+  .info dt{width:100%;padding:10px 16px;}
+  .info dd{padding:12px 16px 16px;}
+  .bar-title{font-size:13px;}
+  .bar-cta{padding:8px 14px;font-size:13px;}
+  .tl::before{left:58px;}
+  .tl .t{width:50px;font-size:13px;}
+  .hero-art{height:180px;}
+  .row-card{flex-direction:column;align-items:flex-start;gap:6px;}
+  .row-card .amtx{min-width:0;}
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <div class="bar-title">雪遊び&amp;スキーデビューツアー<small>2026.12.26 sat – 12.27 sun</small></div>
+    <a class="bar-cta" href="#apply">申し込む</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-artwrap">
+  <svg class="hero-art" viewBox="0 0 900 300" preserveAspectRatio="xMidYMax slice" role="img" aria-label="雪山とスキー場のイラスト">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#F8FBFE"/><stop offset="100%" stop-color="#DCEAF4"/>
+      </linearGradient>
+      <filter id="soft"><feGaussianBlur stdDeviation="2.6"/></filter>
+      <filter id="soft2"><feGaussianBlur stdDeviation="1"/></filter>
+    </defs>
+    <rect width="900" height="300" fill="url(#sky)"/>
+    <circle cx="726" cy="86" r="30" fill="#F6D79B" opacity=".65" filter="url(#soft)"/>
+    <!-- far range -->
+    <path d="M0 210 L120 112 L196 186 L268 128 L360 214 L470 120 L560 206 L660 138 L760 208 L860 150 L900 196 L900 300 L0 300Z" fill="#BCD4E4" opacity=".75" filter="url(#soft2)"/>
+    <path d="M120 112 L152 152 L138 150 L126 160 L112 148 L96 150Z" fill="#fff" opacity=".9"/>
+    <path d="M470 120 L502 164 L488 160 L474 172 L460 158 L444 162Z" fill="#fff" opacity=".9"/>
+    <!-- near slope -->
+    <path d="M0 236 C 160 196, 300 246, 470 228 C 620 212, 760 250, 900 226 L900 300 L0 300Z" fill="#E9F2F8"/>
+    <path d="M0 262 C 200 240, 380 272, 560 256 C 720 242, 820 268, 900 254 L900 300 L0 300Z" fill="#FFFFFF"/>
+    <!-- pines -->
+    <g opacity=".95">
+      <path d="M64 258 L86 198 L108 258 Z" fill="#3F6B57"/><rect x="82" y="254" width="8" height="16" rx="3" fill="#7C6350"/>
+      <path d="M116 264 L134 216 L152 264 Z" fill="#4E7C66"/><rect x="130" y="260" width="7" height="14" rx="3" fill="#7C6350"/>
+      <path d="M780 260 L802 204 L824 260 Z" fill="#3F6B57"/><rect x="798" y="256" width="8" height="16" rx="3" fill="#7C6350"/>
+      <path d="M836 266 L852 224 L868 266 Z" fill="#4E7C66"/><rect x="848" y="262" width="7" height="13" rx="3" fill="#7C6350"/>
+    </g>
+    <!-- lift -->
+    <g stroke="#93A9B8" stroke-width="3" fill="none">
+      <path d="M214 236 L214 186 M330 226 L330 166 M452 220 L452 150"/>
+      <path d="M206 186 L452 150"/>
+    </g>
+    <g fill="#E06B52">
+      <rect x="258" y="176" width="16" height="13" rx="3"/><rect x="380" y="160" width="16" height="13" rx="3"/>
+    </g>
+    <g stroke="#93A9B8" stroke-width="2"><path d="M266 176 L266 168 M388 160 L388 153"/></g>
+    <!-- skier -->
+    <g transform="translate(548,214)">
+      <path d="M-14 26 L26 20" stroke="#2F76A8" stroke-width="4" stroke-linecap="round"/>
+      <path d="M-10 32 L30 26" stroke="#2F76A8" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="8" cy="0" r="7" fill="#F0C9A8"/>
+      <path d="M1 -2 a7 7 0 0 1 14 0 z" fill="#E06B52"/>
+      <path d="M8 7 L6 22 L14 22 L16 8 Z" fill="#E9A13B"/>
+      <path d="M6 22 L-8 26 M16 14 L28 20" stroke="#56697B" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <!-- snowman -->
+    <g transform="translate(660,236)">
+      <circle cx="0" cy="22" r="17" fill="#fff" stroke="#CFE3F0" stroke-width="2"/>
+      <circle cx="0" cy="0" r="12" fill="#fff" stroke="#CFE3F0" stroke-width="2"/>
+      <circle cx="-4" cy="-2" r="1.6" fill="#24323F"/><circle cx="4" cy="-2" r="1.6" fill="#24323F"/>
+      <path d="M0 2 l7 2 l-7 2z" fill="#E9A13B"/>
+      <path d="M-12 12 h24" stroke="#E06B52" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <!-- snowflakes -->
+    <g fill="#fff" opacity=".9">
+      <circle cx="120" cy="64" r="3"/><circle cx="220" cy="40" r="2.4"/><circle cx="300" cy="82" r="3"/>
+      <circle cx="420" cy="52" r="2.4"/><circle cx="520" cy="90" r="3"/><circle cx="620" cy="46" r="2.4"/>
+      <circle cx="820" cy="76" r="3"/>
+    </g>
+  </svg>
+  </div>
+
+  <div class="hero-body">
+    <span class="hero-kicker">年中〜小学生 ／ 1泊2日 ／ 定員40名</span>
+    <h1>雪遊び&amp;<em>スキーデビュー</em>ツアー</h1>
+    <p class="hero-sub">雪だるま、そり、はじめてのスキー。<br>どれくらい遊ぶかは、3つのプランから選べます。</p>
+    <div class="facts">
+      <div class="fact">📅 <b>2026年12月26日(土)</b> 〜 <b>27日(日)</b></div>
+      <div class="fact">🏔 鹿島槍スキー場（長野県大町市）</div>
+      <div class="fact">💰 <b>39,800円</b>〜（会員・ウェア持参）</div>
+    </div>
+    <a class="btn" href="#apply">参加を申し込む</a>
+    <p class="btn-note">申込締切 12月7日(日)／11月15日までのお申し込みで早期割引 −2,000円</p>
+  </div>
+</div>
+
+<!-- ======== JOYS ======== -->
+<section class="joys">
+  <div class="wrap">
+    <p class="sec-label">WHAT WE DO</p>
+    <h2>雪の中で過ごす、2日間</h2>
+    <div class="h2-rule"></div>
+    <p class="lead">スキーをやってみたい子も、雪で思いきり遊びたい子も、どちらも楽しめるように組み立てました。</p>
+
+    <div class="joy-grid">
+      <div class="joy">
+        <svg class="ico" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <circle cx="32" cy="40" r="15" fill="#fff" stroke="#2F76A8" stroke-width="2.5"/>
+          <circle cx="32" cy="20" r="10" fill="#fff" stroke="#2F76A8" stroke-width="2.5"/>
+          <circle cx="28" cy="18" r="1.8" fill="#24323F"/><circle cx="36" cy="18" r="1.8" fill="#24323F"/>
+          <path d="M32 22 l7 2 l-7 2z" fill="#E9A13B"/>
+          <path d="M17 34 h30" stroke="#E06B52" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <h3>雪だるま、そり、<br>雪合戦</h3>
+        <p>ゲレンデの雪遊びエリアで思いきりはしゃごう。ポケモンスノーアドベンチャーのエリアも使えます。</p>
+      </div>
+      <div class="joy">
+        <svg class="ico" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path d="M10 50 L46 42 M12 56 L48 48" stroke="#2F76A8" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="34" cy="16" r="7" fill="#F0C9A8"/>
+          <path d="M27 14 a7 7 0 0 1 14 0 z" fill="#E06B52"/>
+          <path d="M34 23 L31 44 L40 44 L43 24 Z" fill="#E9A13B"/>
+          <path d="M31 44 L16 50 M43 32 L52 42" stroke="#56697B" stroke-width="3.5" stroke-linecap="round"/>
+        </svg>
+        <h3>はじめての<br>スキーレッスン</h3>
+        <p>教えるのは鹿島槍スキー場併設のスキー教室のインストラクター。レベル別に班を分けて、1班10名ほどで習います。</p>
+      </div>
+      <div class="joy">
+        <svg class="ico" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path d="M10 34 L32 16 L54 34 Z" fill="#CFE3F0" stroke="#2F76A8" stroke-width="2.5" stroke-linejoin="round"/>
+          <rect x="16" y="34" width="32" height="18" rx="3" fill="#fff" stroke="#2F76A8" stroke-width="2.5"/>
+          <rect x="24" y="40" width="7" height="12" fill="#E9A13B"/>
+          <rect x="35" y="40" width="7" height="7" fill="#7FB6DC"/>
+        </svg>
+        <h3>みんなで泊まる、<br>雪の夜</h3>
+        <p>宿はゲレンデのすぐそば。友達と同じ部屋で過ごす夜も、このツアーの楽しみのひとつです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== PLANS ======== -->
+<section id="plans">
+  <div class="wrap">
+    <p class="sec-label">PLAN</p>
+    <h2>3つのプランから選べます</h2>
+    <div class="h2-rule"></div>
+    <p class="lead">「スキーはまだ早いかな」というお子さまも、「がっつり滑りたい」というお子さまも参加できます。表示は会員価格・ウェア持参の場合です。</p>
+
+    <div class="plan-grid">
+      <div class="plan">
+        <p class="num">PLAN ①</p>
+        <h3>雪遊びのみ</h3>
+        <p class="from">会員価格</p>
+        <p class="amt">39,800<span>円</span></p>
+        <ul>
+          <li>2日間とも雪遊び</li>
+          <li>雪だるま・そり・雪合戦</li>
+          <li>スキーはしません</li>
+        </ul>
+        <p class="age">年中さんから参加できます</p>
+      </div>
+      <div class="plan pick">
+        <span class="ribbon">はじめての子に人気</span>
+        <p class="num">PLAN ②</p>
+        <h3>スキー＋雪遊び</h3>
+        <p class="from">会員価格</p>
+        <p class="amt">48,700<span>円</span></p>
+        <ul>
+          <li>1日目：スキーレッスン</li>
+          <li>2日目：雪遊び</li>
+          <li>スキーも雪遊びも、どっちも頑張ろう</li>
+        </ul>
+        <p class="age">年長さん以上が対象です</p>
+      </div>
+      <div class="plan">
+        <p class="num">PLAN ③</p>
+        <h3>スキーのみ</h3>
+        <p class="from">会員価格</p>
+        <p class="amt">55,200<span>円</span></p>
+        <ul>
+          <li>2日間ともスキーレッスン</li>
+          <li>半日レッスン×2回</li>
+          <li>リフト券込み</li>
+        </ul>
+        <p class="age">年長さん以上が対象です</p>
+      </div>
+    </div>
+
+    <div class="tscroll">
+      <table class="ptable">
+        <thead>
+          <tr><th>プラン</th><th>会員</th><th>元会員</th><th>一般</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>①雪遊びのみ</td><td class="hl">39,800円</td><td>43,800円</td><td>47,800円</td></tr>
+          <tr><td>②スキー＋雪遊び</td><td class="hl">48,700円</td><td>53,600円</td><td>58,500円</td></tr>
+          <tr><td>③スキーのみ</td><td class="hl">55,200円</td><td>60,850円</td><td>66,500円</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">
+      すべてウェアをお持ちの場合の金額です。会員はJUMP UP・クスカにご在籍中の方、元会員は以前ご在籍だった方、またはeducareの宿泊イベントに参加したことがある方です。
+    </p>
+
+    <div class="rows">
+      <div class="row-card">
+        <span class="amtx">+3,000円</span>
+        <p><b>スキーウェアのレンタル</b>　お持ちでない方はレンタルできます（全プラン共通）。<small>手袋・防寒タイツ・ニット帽などの防寒具は各自でご用意ください。</small></p>
+      </div>
+      <div class="row-card">
+        <span class="amtx">+3,000円</span>
+        <p><b>経験者オプション（②のプランのみ）</b>　スキー経験のあるお子さまは、1日目からリフトに乗る可能性があるため、リフト券込みのオプションが別途必要です。<small>お申し込みフォームでスキー経験の有無をうかがいます。未経験のお子さまは追加料金はかかりません。</small></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== DISCOUNT ======== -->
+<section class="joys">
+  <div class="wrap">
+    <p class="sec-label">DISCOUNT</p>
+    <h2>割引</h2>
+    <div class="h2-rule"></div>
+
+    <div class="rows" style="margin-top:0;">
+      <div class="row-card disc">
+        <span class="amtx">−2,000円</span>
+        <p><b>早期申込割引</b>　11月15日(日)までにお申し込みの方。<small>ほかの割引と重ねて使えます。</small></p>
+      </div>
+      <div class="row-card disc">
+        <span class="amtx">−2,000円</span>
+        <p><b>兄弟姉妹割引</b>　ごきょうだいでお申し込みの場合、2人目以降のお子さま。<small>ほかの割引と重ねて使えます。</small></p>
+      </div>
+      <div class="row-card disc">
+        <span class="amtx">−2,000円</span>
+        <p><b>お友達紹介割引</b>　紹介した方・紹介された方のどちらも対象です。<small>リピーター割引とは、どちらかお得な1つの適用になります。</small></p>
+      </div>
+      <div class="row-card disc">
+        <span class="amtx">−2,000円</span>
+        <p><b>リピーター割引</b>　educareの宿泊イベントに参加したことがある方。<small>お友達紹介割引とは、どちらかお得な1つの適用になります。</small></p>
+      </div>
+    </div>
+    <p class="note">早期申込・兄弟姉妹と、紹介またはリピーターを組み合わせると、最大で−4,000円（2人目以降のお子さまはさらに−2,000円）になります。</p>
+  </div>
+</section>
+
+
+<!-- ======== CALCULATOR ======== -->
+<section id="calc">
+  <div class="wrap">
+    <p class="sec-label">SIMULATOR</p>
+    <h2>うちの子はいくら？</h2>
+    <div class="h2-rule"></div>
+    <p class="lead">あてはまるものを選ぶと、参加費の合計が出ます。お申し込み前の目安としてお使いください。</p>
+
+    <div class="calc">
+      <fieldset>
+        <legend>1. お子さまの区分</legend>
+        <div class="chips">
+          <label><input type="radio" name="s_tier" value="0" checked><span>会員</span></label>
+          <label><input type="radio" name="s_tier" value="1"><span>元会員</span></label>
+          <label><input type="radio" name="s_tier" value="2"><span>一般</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. プラン</legend>
+        <div class="chips">
+          <label><input type="radio" name="s_plan" value="1" checked><span>①雪遊びのみ</span></label>
+          <label><input type="radio" name="s_plan" value="2"><span>②スキー＋雪遊び</span></label>
+          <label><input type="radio" name="s_plan" value="3"><span>③スキーのみ</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>3. スキーウェア</legend>
+        <div class="chips">
+          <label><input type="radio" name="s_wear" value="0" checked><span>持参する</span></label>
+          <label><input type="radio" name="s_wear" value="1"><span>レンタルする（+3,000円）</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset id="s_expbox">
+        <legend>4. スキーの経験（②のプランの方）</legend>
+        <div class="chips">
+          <label><input type="radio" name="s_exp" value="0" checked><span>はじめて</span></label>
+          <label><input type="radio" name="s_exp" value="1"><span>経験がある（+3,000円）</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>5. 割引（あてはまるもの）</legend>
+        <div class="chips">
+          <label><input type="checkbox" id="s_early" checked><span>早期申込（11/15まで）−2,000円</span></label>
+          <label><input type="checkbox" id="s_sib"><span>2人目以降のお子さま −2,000円</span></label>
+        </div>
+        <div class="chips" style="margin-top:8px;">
+          <label><input type="radio" name="s_fr" value="0" checked><span>紹介・リピーターなし</span></label>
+          <label><input type="radio" name="s_fr" value="1"><span>お友達紹介 −2,000円</span></label>
+          <label><input type="radio" name="s_fr" value="2"><span>リピーター −2,000円</span></label>
+        </div>
+      </fieldset>
+
+      <div class="calc-out">
+        <ul class="calc-lines" id="s_lines"></ul>
+        <div class="calc-total"><span class="lbl">お一人あたりの参加費</span><span class="val" id="s_total">—</span></div>
+      </div>
+      <p class="calc-note">
+        ※ お友達紹介とリピーターは、どちらか1つの適用です。早期申込と兄弟姉妹割引は重ねて使えます。<br>
+        ※ 年中のお子さまは「①雪遊びのみ」が対象です。②③は年長さん以上になります。<br>
+        ※ 表示は目安です。正式な金額は、お申し込み後のご案内でお知らせします。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ======== LESSON ======== -->
+<section class="lesson">
+  <div class="wrap">
+    <p class="sec-label">SKI LESSON</p>
+    <h2>スキーレッスンについて</h2>
+    <div class="h2-rule"></div>
+    <p class="lead">鹿島槍スキー場併設のスキー教室のインストラクターが指導します。初心者・経験者などレベル別に班を分け、1班10名ほどで習います。</p>
+
+    <div class="goal">
+      <div><b>はじめての子の目標</b><br>自分でブレーキをかけて止まれる／思った方向に曲がれる。この2つができると、スキーは一気に楽しくなります。</div>
+      <div><b>経験のある子は</b><br>インストラクターの判断で、1日目からリフトに挑戦することもあります。レベルに合った班で練習します。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== TIMETABLE ======== -->
+<section>
+  <div class="wrap">
+    <p class="sec-label">TIMETABLE</p>
+    <h2>2日間の流れ</h2>
+    <div class="h2-rule"></div>
+    <p class="lead">名古屋から鹿島槍スキー場まではバスで約4時間です。下の時間は予定で、当日の道路や天候の状況によって前後します。</p>
+
+    <div class="day">
+      <div class="day-head"><span class="badge">DAY 1</span><span class="d">12月26日(土)</span></div>
+      <ul class="tl">
+        <li><span class="t">7:00</span><span class="dot"></span><span class="c">集合・出発<small>金山・大曽根・春日井のいずれかを予定</small></span></li>
+        <li><span class="t">11:00</span><span class="dot"></span><span class="c">鹿島槍スキー場に到着・着替え</span></li>
+        <li><span class="t">11:30</span><span class="dot"></span><span class="c">お昼ごはん<small>1日目のお昼は各自でご持参ください</small></span></li>
+        <li class="hl"><span class="t">12:30</span><span class="dot"></span><span class="c">スキーレッスン／雪遊び<small>②③はレッスン、①は雪遊びエリアへ</small></span></li>
+        <li><span class="t">15:30</span><span class="dot"></span><span class="c">宿へ移動・お風呂</span></li>
+        <li class="hl"><span class="t">18:00</span><span class="dot"></span><span class="c">夕ごはん</span></li>
+        <li><span class="t">19:30</span><span class="dot"></span><span class="c">お楽しみタイム・寝る準備</span></li>
+        <li><span class="t">21:00</span><span class="dot"></span><span class="c">おやすみなさい</span></li>
+      </ul>
+    </div>
+
+    <div class="day">
+      <div class="day-head"><span class="badge">DAY 2</span><span class="d">12月27日(日)</span></div>
+      <ul class="tl">
+        <li><span class="t">6:30</span><span class="dot"></span><span class="c">起床・荷物まとめ</span></li>
+        <li><span class="t">7:30</span><span class="dot"></span><span class="c">朝ごはん</span></li>
+        <li class="hl"><span class="t">9:00</span><span class="dot"></span><span class="c">スキーレッスン／雪遊び<small>③はレッスン、①②は雪遊び</small></span></li>
+        <li><span class="t">12:30</span><span class="dot"></span><span class="c">片づけ・着替え</span></li>
+        <li><span class="t">13:00</span><span class="dot"></span><span class="c">鹿島槍スキー場を出発</span></li>
+        <li class="hl"><span class="t">13:30</span><span class="dot"></span><span class="c">お昼ごはん<small>マルハン爺ガ岳ロッジでゆっくりいただきます</small></span></li>
+        <li><span class="t">14:40</span><span class="dot"></span><span class="c">おわりの会・荷物の積み込み</span></li>
+        <li><span class="t">15:00</span><span class="dot"></span><span class="c">ロッジを出発</span></li>
+        <li><span class="t">19:00</span><span class="dot"></span><span class="c">解散<small>行きと同じ場所で解散します</small></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ======== INFO ======== -->
+<section class="joys">
+  <div class="wrap">
+    <p class="sec-label">INFORMATION</p>
+    <h2>開催概要</h2>
+    <div class="h2-rule"></div>
+    <div class="info">
+      <dl>
+        <div class="row"><dt>日程</dt><dd>2026年12月26日(土) 〜 12月27日(日)<small>1泊2日</small></dd></div>
+        <div class="row"><dt>会場</dt><dd>鹿島槍スキー場（長野県大町市）</dd></div>
+        <div class="row"><dt>宿泊</dt><dd>マルハン爺ガ岳ロッジ<small>7名程度のグループに引率スタッフ1名がつきます</small></dd></div>
+        <div class="row"><dt>集合・解散</dt><dd>1日目 7:00集合／2日目 19:00解散（予定）<small>場所は金山・大曽根・春日井を予定しています。決定次第お知らせします</small></dd></div>
+        <div class="row"><dt>対象</dt><dd>年中〜小学生<small>年中さんは「①雪遊びのみ」のプランをお選びください。②③は年長さん以上が対象です</small></dd></div>
+        <div class="row"><dt>定員</dt><dd>40名（最少催行人数 20名）</dd></div>
+        <div class="row"><dt>食事</dt><dd>3食付<small>1日目：夕食／2日目：朝食・昼食（どちらも宿のマルハン爺ガ岳ロッジでいただきます）　※1日目のお昼は各自でご持参ください</small></dd></div>
+        <div class="row"><dt>移動</dt><dd>名古屋発の貸切バス<small>所要時間は片道約4時間です</small></dd></div>
+        <div class="row"><dt>キャンセル料</dt><dd>20日前〜8日前：20%／7日前〜2日前：30%／前日：50%／当日：100%<small>出発日の前日から起算します。取消の受付は（株）ツーリスト中部の営業時間内（平日 9:30〜18:00）にお願いします　TEL：052-409-8070</small></dd></div>
+        <div class="row"><dt>申込締切</dt><dd>2026年12月7日(日)</dd></div>
+        <div class="row"><dt>主催・手配</dt><dd>企画・運営：educare（エデュカーレ）／旅行手配：株式会社ツーリスト中部</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ======== PACKING ======== -->
+<section>
+  <div class="wrap">
+    <p class="sec-label">PACKING LIST</p>
+    <h2>持ちもの</h2>
+    <div class="h2-rule"></div>
+    <p class="lead">雪の中では、手先と足先から冷えます。手袋と靴下は、替えを入れておくと安心です。</p>
+
+    <div class="pack-grid">
+      <div class="pack">
+        <h3>必ず持ってくるもの</h3>
+        <ul>
+          <li>スキーウェア（レンタルの方は不要）</li>
+          <li>防水の手袋（替えもあると安心）</li>
+          <li>ニット帽・ネックウォーマー</li>
+          <li>防寒タイツ・厚手の靴下（替えも）</li>
+          <li>着替え 1日分＋下着</li>
+          <li>1日目のお昼ごはん</li>
+          <li>洗面用具・タオル</li>
+          <li>水筒</li>
+          <li>保険証のコピー・常備薬</li>
+        </ul>
+      </div>
+      <div class="pack opt">
+        <h3>あると便利なもの</h3>
+        <ul>
+          <li>ゴーグルまたはサングラス</li>
+          <li>日焼け止め・リップクリーム</li>
+          <li>使い捨てカイロ</li>
+          <li>ビニール袋（濡れたもの入れ）</li>
+          <li>酔い止め（バスの時間が長めです）</li>
+          <li>お気に入りのぬいぐるみ　など</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <b>スキーの道具について</b><br>
+      スキー板・ストック・ブーツ・ヘルメットは、②③のプランの参加費に含まれています。ご用意いただくのは防寒具だけです。<br>
+      ウェアをお持ちでない場合は、+3,000円でレンタルできます。お申し込みフォームで身長と足のサイズをうかがいます。
+    </div>
+  </div>
+</section>
+
+<!-- ======== PERSONA ======== -->
+<section class="persona">
+  <div class="wrap">
+    <p class="sec-label">FOR YOU</p>
+    <h2>こんなご家庭に</h2>
+    <div class="h2-rule"></div>
+
+    <div class="p-grid">
+      <div class="p-card">
+        <span class="tagp">はじめての雪遊び</span>
+        <h3>雪でたっぷり遊ばせたい</h3>
+        <p>スキーはまだ早いけれど、雪の中で思いきり遊ばせてあげたい。そんなご家庭には①のプランを。年中さんから参加できます。</p>
+        <p class="price">一般 47,800円 → 紹介＋早期で <b>43,800円</b></p>
+      </div>
+      <div class="p-card">
+        <span class="tagp">スキーデビュー</span>
+        <h3>この冬、滑れるようにさせたい</h3>
+        <p>1日目にレッスンを受けて、2日目は雪遊び。はじめての子がいちばん選んでいるプランです。2月の少人数スキーツアーへのステップにもなります。</p>
+        <p class="price">元会員 53,600円 → リピーター＋早期で <b>50,100円</b></p>
+      </div>
+      <div class="p-card">
+        <span class="tagp">運動好きな子</span>
+        <h3>2日間しっかり滑りたい</h3>
+        <p>体を動かすのが好きな子には③を。半日レッスンを2回受けて、集中して上達をめざします。リフト券も含まれています。</p>
+        <p class="price">会員 55,200円 → リピーター＋早期で <b>51,700円</b></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== FAQ ======== -->
+<section class="faq">
+  <div class="wrap">
+    <p class="sec-label">Q &amp; A</p>
+    <h2>よくあるご質問</h2>
+    <div class="h2-rule"></div>
+
+    <details class="q" open>
+      <summary>スキーをしたことがありません。大丈夫ですか？</summary>
+      <div class="a">はい、はじめての子がほとんどです。教えるのはスキー場併設のスキー教室のインストラクターで、レベル別に班を分けます。まずは「自分で止まれる」「曲がれる」を目標に練習します。板やブーツもこちらで用意します。</div>
+    </details>
+    <details class="q">
+      <summary>年中でも参加できますか？</summary>
+      <div class="a">年中さんは「①雪遊びのみ」のプランでご参加いただけます。スキーのレッスンがある②③は、年長さん以上が対象です。</div>
+    </details>
+    <details class="q">
+      <summary>スキーウェアを持っていません。</summary>
+      <div class="a">+3,000円でレンタルできます（全プラン共通）。雪遊びのみのプランでもウェアは必要です。手袋・防寒タイツ・ニット帽などの小物は各自でご用意ください。</div>
+    </details>
+    <details class="q">
+      <summary>少し滑れる子は、どのプランがいいですか？</summary>
+      <div class="a">2日間しっかり滑りたいお子さまは③がおすすめです。②を選ぶ場合、スキー経験のあるお子さまは1日目からリフトに乗る可能性があるため、経験者オプション（+3,000円・リフト券込み）が別途必要になります。お申し込みフォームで経験の有無をうかがいます。</div>
+    </details>
+    <details class="q">
+      <summary>人数が集まらなかったら中止ですか？</summary>
+      <div class="a">最少催行人数は20名です。これを下回った場合は、中止にはせず、特急しなのと現地での車での移動に切り替えて、少人数で実施します。ただし5名以下の場合は中止とし、参加費は全額返金いたします。</div>
+    </details>
+    <details class="q">
+      <summary>雪が少なかったらどうなりますか？</summary>
+      <div class="a">積雪や天候の状況によって、プログラムの内容を変更する場合があります。変更がある場合は、事前にご連絡します。</div>
+    </details>
+    <details class="q">
+      <summary>キャンセルしたい場合は？</summary>
+      <div class="a">お客様のご都合で取り消す場合、出発日の前日から起算して、20日前〜8日前は旅行代金の20%、7日前〜2日前は30%、前日は50%、当日は100%の取消料をいただきます。取消の受付は（株）ツーリスト中部（TEL：052-409-8070）の営業時間内（平日 9:30〜18:00、土日祝休み）にお願いします。</div>
+    </details>
+  </div>
+</section>
+
+<!-- ======== APPLY ======== -->
+<section class="apply" id="apply">
+  <div class="wrap">
+    <p class="sec-label">ENTRY</p>
+    <h2>お申し込み</h2>
+    <div class="h2-rule" style="margin-left:auto;margin-right:auto;"></div>
+    <p class="deadline">申込締切 2026年12月7日(日)</p>
+
+    <div>
+      <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSenaunL6HVdQEJ9j9zkPtcGj6WyQnZUaYr60mQ4PDQXkp3o7Q/viewform" target="_blank" rel="noopener">申込フォームへ進む</a>
+      <p class="btn-note">ご質問・ご相談は公式LINEからもお気軽にどうぞ</p>
+      <p style="margin-top:14px;"><a class="btn ghost" href="https://lin.ee/QgHjbTQ" target="_blank" rel="noopener">公式LINEで相談する</a></p>
+    </div>
+
+    <div class="steps">
+      <div class="step"><p class="sn">STEP 1</p><p>フォームからお申し込み。プラン・ウェアレンタル・スキー経験・アレルギーもここでお知らせください。</p></div>
+      <div class="step"><p class="sn">STEP 2</p><p>こちらから受付完了のご連絡と、お支払い方法をご案内します。</p></div>
+      <div class="step"><p class="sn">STEP 3</p><p>締切後に、持ちもの・当日の集合場所の詳細をあらためてお送りします。</p></div>
+    </div>
+
+    <p class="minnote">
+      ※ 11月15日(日)までのお申し込みで、早期申込割引−2,000円が適用されます。<br>
+      ※ 定員40名に達した時点で、締切前でも受付を終了します。
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="brand">educare</div>
+      <div class="meta">雪遊び&amp;スキーデビューツアー　2026年12月26日(土)–27日(日)<br>鹿島槍スキー場（長野県大町市）／マルハン爺ガ岳ロッジ</div>
+    </div>
+    <div class="meta">企画・運営：educare（エデュカーレ）<br>旅行手配：株式会社ツーリスト中部</div>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+  var P = {1:[39800,43800,47800], 2:[48700,53600,58500], 3:[55200,60850,66500]};
+  var NAME = {1:'①雪遊びのみ', 2:'②スキー＋雪遊び', 3:'③スキーのみ'};
+  var TIER = ['会員','元会員','一般'];
+  function v(n){ var el = document.querySelector('input[name="'+n+'"]:checked'); return el ? el.value : '0'; }
+  function yen(n){ return n.toLocaleString('ja-JP') + '円'; }
+  function calc(){
+    var plan = v('s_plan'), tier = +v('s_tier');
+    var lines = [], total = P[plan][tier];
+    lines.push({t: NAME[plan] + '（' + TIER[tier] + '）', v: total, cls:'base'});
+    if (v('s_wear') === '1'){ total += 3000; lines.push({t:'ウェアレンタル', v:3000}); }
+    var expBox = document.getElementById('s_expbox');
+    var isCombo = plan === '2';
+    expBox.style.opacity = isCombo ? '1' : '.4';
+    Array.prototype.forEach.call(expBox.querySelectorAll('input'), function(i){ i.disabled = !isCombo; });
+    if (isCombo && v('s_exp') === '1'){ total += 3000; lines.push({t:'経験者オプション（リフト券込み）', v:3000}); }
+    if (document.getElementById('s_early').checked){ total -= 2000; lines.push({t:'早期申込割引', v:-2000, cls:'minus'}); }
+    var fr = v('s_fr');
+    if (fr === '1'){ total -= 2000; lines.push({t:'お友達紹介割引', v:-2000, cls:'minus'}); }
+    if (fr === '2'){ total -= 2000; lines.push({t:'リピーター割引', v:-2000, cls:'minus'}); }
+    if (document.getElementById('s_sib').checked){ total -= 2000; lines.push({t:'兄弟姉妹割引（2人目以降）', v:-2000, cls:'minus'}); }
+    document.getElementById('s_lines').innerHTML = lines.map(function(l){
+      return '<li class="'+(l.cls||'')+'"><span>'+l.t+'</span><span>'+(l.v<0?'−'+yen(-l.v):yen(l.v))+'</span></li>';
+    }).join('');
+    document.getElementById('s_total').textContent = yen(total);
+  }
+  document.querySelectorAll('#calc input').forEach(function(i){ i.addEventListener('change', calc); });
+  calc();
+})();
+</script>
+</body>
+</html>
