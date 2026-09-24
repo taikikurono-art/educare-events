@@ -242,6 +242,20 @@ header.bar{
 .calc-note{font-size:12.5px;color:var(--ink-faint);margin:12px 0 0;line-height:1.75;}
 @media (max-width:760px){.calc{padding:20px 16px;}}
 
+
+/* ---------- entry gate ---------- */
+.when-open{display:none;}
+[data-entry="open"] .when-open{display:block;}
+[data-entry="open"] .when-soon{display:none;}
+.soonbox{
+  display:inline-block;background:#FFF6E8;border:2px dashed var(--tan);
+  border-radius:18px;padding:18px 26px;text-align:center;max-width:560px;
+}
+.soonbox .lbl{font-size:13px;letter-spacing:.1em;color:var(--ink-soft);margin:0;}
+.soonbox .dt{font-family:"Kaisei Decol",serif;font-size:clamp(20px,4.6vw,26px);color:var(--terracotta-deep);margin:4px 0 6px;}
+.soonbox p{margin:0;font-size:13.5px;color:var(--ink-soft);line-height:1.75;}
+.soonbox .countdown{font-size:13px;color:var(--ink-faint);margin-top:8px;font-variant-numeric:tabular-nums;}
+
 /* ---------- packing ---------- */
 .pack-grid{display:grid;gap:16px;grid-template-columns:1fr 1fr;}
 .pack{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px 22px;}
@@ -463,8 +477,19 @@ footer .meta{color:#B7A794;line-height:1.9;}
       <div class="fact">📍 小幡緑地（名古屋市守山区）</div>
       <div class="fact">💰 会員 <b>18,000円</b> ／ 元会員 21,000円</div>
     </div>
-    <a class="btn" href="#apply">参加を申し込む</a>
-    <p class="btn-note">申込締切 10月24日(金)／定員になり次第しめきります</p>
+    <div class="when-open">
+      <a class="btn" href="#apply">参加を申し込む</a>
+      <p class="btn-note">申込締切 10月24日(金)／定員になり次第しめきります</p>
+    </div>
+    <div class="when-soon">
+        <div class="soonbox">
+          <p class="lbl">お申し込み受付開始</p>
+          <p class="dt">9月28日(日) 21:00</p>
+          <p>この日時から、先着順で受付を開始します。<br>受付開始のお知らせは公式LINEでもお送りします。</p>
+          <p class="countdown"></p>
+        </div>
+        <noscript><p style="margin-top:12px;"><a href="https://docs.google.com/forms/d/e/1FAIpQLSenaunL6HVdQEJ9j9zkPtcGj6WyQnZUaYr60mQ4PDQXkp3o7Q/viewform">受付開始後はこちらからお申し込みいただけます</a></p></noscript>
+      </div>
   </div>
 </div>
 
@@ -853,7 +878,16 @@ footer .meta{color:#B7A794;line-height:1.9;}
     <p class="deadline">申込締切 2026年10月24日(金)</p>
 
     <div>
-      <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSenaunL6HVdQEJ9j9zkPtcGj6WyQnZUaYr60mQ4PDQXkp3o7Q/viewform" target="_blank" rel="noopener" id="formLink">申込フォームへ進む</a>
+      <div class="when-open"><a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSenaunL6HVdQEJ9j9zkPtcGj6WyQnZUaYr60mQ4PDQXkp3o7Q/viewform" target="_blank" rel="noopener" id="formLink">申込フォームへ進む</a></div>
+      <div class="when-soon">
+        <div class="soonbox">
+          <p class="lbl">お申し込み受付開始</p>
+          <p class="dt">9月28日(日) 21:00</p>
+          <p>この日時から、先着順で受付を開始します。<br>受付開始のお知らせは公式LINEでもお送りします。</p>
+          <p class="countdown"></p>
+        </div>
+        <noscript><p style="margin-top:12px;"><a href="https://docs.google.com/forms/d/e/1FAIpQLSenaunL6HVdQEJ9j9zkPtcGj6WyQnZUaYr60mQ4PDQXkp3o7Q/viewform">受付開始後はこちらからお申し込みいただけます</a></p></noscript>
+      </div>
       <p class="btn-note">ご質問・ご相談は公式LINEからもお気軽にどうぞ</p>
       <p style="margin-top:14px;"><a class="btn ghost" href="https://lin.ee/QgHjbTQ" target="_blank" rel="noopener" id="lineLink">公式LINEで相談する</a></p>
     </div>
@@ -899,6 +933,25 @@ footer .meta{color:#B7A794;line-height:1.9;}
   }
   document.querySelectorAll('#tcalc input').forEach(function(i){ i.addEventListener('change', calc); });
   calc();
+})();
+</script>
+
+<script>
+(function(){
+  var OPEN = new Date("2026-09-28T21:00:00+09:00").getTime();
+  var root = document.documentElement;
+  function tick(){
+    var now = Date.now();
+    if (now >= OPEN) { root.setAttribute('data-entry','open'); return; }
+    root.setAttribute('data-entry','soon');
+    var left = OPEN - now;
+    var d = Math.floor(left/86400000), h = Math.floor(left/3600000)%24, m = Math.floor(left/60000)%60;
+    Array.prototype.forEach.call(document.querySelectorAll('.countdown'), function(el){
+      el.textContent = (d > 0 ? 'あと ' + d + '日 ' + h + '時間' : 'あと ' + h + '時間 ' + m + '分');
+    });
+    setTimeout(tick, 30000);
+  }
+  tick();
 })();
 </script>
 </body>
