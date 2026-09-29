@@ -477,7 +477,7 @@ footer .meta{color:#B7A794;line-height:1.9;}
   </div>
 
   <div class="hero-body">
-    <span class="hero-kicker">会員・元会員の方へ ／ 年中〜小学生 ／ 1泊2日 ／ 定員18名</span>
+    <span class="hero-kicker">会員・元会員とそのごきょうだいへ ／ 年中〜小学生 ／ 1泊2日 ／ 定員18名</span>
     <h1>秋の<br><em>お手軽テント泊</em></h1>
     <p class="hero-sub">近くの公園で、気軽に1泊。<br>焚き火を囲んで、外で食べるごはん。</p>
     <div class="facts">
@@ -667,7 +667,7 @@ footer .meta{color:#B7A794;line-height:1.9;}
         <div class="row"><dt>日程</dt><dd>2026年11月7日(土) 15:00 〜 11月8日(日) 9:30<small>1泊2日</small></dd></div>
         <div class="row"><dt>会場</dt><dd>小幡緑地　オバッタベッタ テントサイト（名古屋市守山区）</dd></div>
         <div class="row"><dt>集合・解散</dt><dd>現地集合・現地解散<small>送迎は保護者の方にお願いいたします</small></dd></div>
-        <div class="row"><dt>対象</dt><dd>年中〜小学生<small>JUMP UP・クスカにご在籍中の方、以前ご在籍だった方、educareの宿泊イベントに参加したことがある方が対象です（一般の募集はありません）／保護者の付き添いは必要ありません</small></dd></div>
+        <div class="row"><dt>対象</dt><dd>年中〜小学生<small>JUMP UP・クスカにご在籍中の方、以前ご在籍だった方、educareの宿泊イベントに参加したことがある方と、そのごきょうだいが対象です（そのほかの一般募集はありません）／保護者の付き添いは必要ありません</small></dd></div>
         <div class="row"><dt>定員</dt><dd>18名（最少催行人数 6名）<small>定員になり次第、受付を終了します</small></dd></div>
         <div class="row"><dt>引率</dt><dd>スタッフ4名<small>自然体験教室クスカで引率をしている保育士の先生たちが中心です</small></dd></div>
         <div class="row"><dt>食事</dt><dd>2食<small>1日目：夕食（クレープパーティー＆スープ）／2日目：朝食<br>クレープ生地は米粉と豆乳でつくります。アレルギーのあるお子さまには、食事の際に担当スタッフが付き添います</small></dd></div>
@@ -698,9 +698,11 @@ footer .meta{color:#B7A794;line-height:1.9;}
       <div class="pc">
         <p class="tag">元会員</p>
         <p class="amt">21,000<span>円</span></p>
-        <p class="note">以前JUMP UP・クスカにご在籍だった方／educareの宿泊イベントに参加したことがある方</p>
+        <p class="note">以前JUMP UP・クスカにご在籍だった方／educareの宿泊イベントに参加したことがある方／会員・元会員のごきょうだい</p>
       </div>
     </div>
+
+    <p class="incl" style="margin-top:14px;">ごきょうだいでのご参加は、上のお子さまが会員・元会員であれば、下のお子さまがJUMP UP・クスカに在籍していなくてもお申し込みいただけます。その場合の参加費は<b>元会員と同じ21,000円</b>です。</p>
 
     <div class="option">
       <span class="amtx">+2,000円</span>
@@ -741,6 +743,7 @@ footer .meta{color:#B7A794;line-height:1.9;}
       </div>
       <p class="calc-note">
         ※ 会員はJUMP UP・クスカにご在籍中の方、元会員は以前ご在籍だった方、またはeducareの宿泊イベントに参加したことがある方です。<br>
+        ※「ごきょうだい」は、会員・元会員のごきょうだいで、ご本人は在籍のない場合です。参加費は元会員と同じ21,000円になります。<br>
         ※ 区分はお子さまごとに選べます。ごきょうだいで区分がちがう場合もそのままお使いください。<br>
         ※ 兄弟姉妹割引（−2,000円）は、2人目以降のお子さまに自動で入ります。<br>
         ※ 表示は目安です。正式な金額は、お申し込み後のご案内でお知らせします。
@@ -914,7 +917,7 @@ footer .meta{color:#B7A794;line-height:1.9;}
 
 <script>
 (function(){
-  var BASE = [18000, 21000], TIER = ['会員','元会員'];
+  var BASE = [18000, 21000, 21000], TIER = ['会員','元会員','ごきょうだい'];
   var kids = [{tier:'0', pack:'0'}];
   var box = document.getElementById('t_kids');
   function yen(n){ return n.toLocaleString('ja-JP') + '円'; }
@@ -927,7 +930,7 @@ footer .meta{color:#B7A794;line-height:1.9;}
       var n = 'tk'+i;
       return '<div class="kid"><h4>' + (i+1) + '人目のお子さま' + (i>0 ? '（兄弟姉妹割引 −2,000円）' : '') + '</h4>' +
         '<div class="grp"><span class="t">区分</span><div class="chips">' +
-          chip(n+'_tier','0',k.tier,'会員') + chip(n+'_tier','1',k.tier,'元会員') +
+          chip(n+'_tier','0',k.tier,'会員') + chip(n+'_tier','1',k.tier,'元会員') + chip(n+'_tier','2',k.tier,'ごきょうだい') +
         '</div></div>' +
         '<div class="grp"><span class="t">寝袋</span><div class="chips">' +
           chip(n+'_pack','0',k.pack,'持っている（または毛布とお昼寝布団）') +
