@@ -727,15 +727,7 @@ footer .meta{color:#B7A794;line-height:1.9;}
 
     <div class="calc" id="tcalc">
       <fieldset>
-        <legend>1. お子さまの区分</legend>
-        <div class="chips">
-          <label><input type="radio" name="t_tier" value="0" checked><span>会員</span></label>
-          <label><input type="radio" name="t_tier" value="1"><span>元会員</span></label>
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>2. お子さまごとの寝袋</legend>
+        <legend>お子さまごとの区分と寝袋</legend>
         <div id="t_kids"></div>
         <div class="chips" style="margin-top:10px;">
           <label><button type="button" id="t_add" class="kidbtn">＋ お子さまを追加</button></label>
@@ -749,6 +741,7 @@ footer .meta{color:#B7A794;line-height:1.9;}
       </div>
       <p class="calc-note">
         ※ 会員はJUMP UP・クスカにご在籍中の方、元会員は以前ご在籍だった方、またはeducareの宿泊イベントに参加したことがある方です。<br>
+        ※ 区分はお子さまごとに選べます。ごきょうだいで区分がちがう場合もそのままお使いください。<br>
         ※ 兄弟姉妹割引（−2,000円）は、2人目以降のお子さまに自動で入ります。<br>
         ※ 表示は目安です。正式な金額は、お申し込み後のご案内でお知らせします。
       </p>
@@ -922,7 +915,7 @@ footer .meta{color:#B7A794;line-height:1.9;}
 <script>
 (function(){
   var BASE = [18000, 21000], TIER = ['会員','元会員'];
-  var kids = [{pack:'0'}];
+  var kids = [{tier:'0', pack:'0'}];
   var box = document.getElementById('t_kids');
   function yen(n){ return n.toLocaleString('ja-JP') + '円'; }
   function v(n){ var el = document.querySelector('input[name="'+n+'"]:checked'); return el ? el.value : '0'; }
@@ -933,6 +926,9 @@ footer .meta{color:#B7A794;line-height:1.9;}
     box.innerHTML = kids.map(function(k, i){
       var n = 'tk'+i;
       return '<div class="kid"><h4>' + (i+1) + '人目のお子さま' + (i>0 ? '（兄弟姉妹割引 −2,000円）' : '') + '</h4>' +
+        '<div class="grp"><span class="t">区分</span><div class="chips">' +
+          chip(n+'_tier','0',k.tier,'会員') + chip(n+'_tier','1',k.tier,'元会員') +
+        '</div></div>' +
         '<div class="grp"><span class="t">寝袋</span><div class="chips">' +
           chip(n+'_pack','0',k.pack,'持っている（または毛布とお昼寝布団）') +
           chip(n+'_pack','1',k.pack,'はじめてキャンプパックを借りる（+2,000円）') +
@@ -941,15 +937,16 @@ footer .meta{color:#B7A794;line-height:1.9;}
     document.getElementById('t_del').disabled = kids.length <= 1;
     document.getElementById('t_add').disabled = kids.length >= 4;
   }
-  function readKids(){ kids.forEach(function(k, i){ k.pack = v('tk'+i+'_pack'); }); }
+  function readKids(){ kids.forEach(function(k, i){ k.tier = v('tk'+i+'_tier'); k.pack = v('tk'+i+'_pack'); }); }
   function calc(){
-    var tier = +v('t_tier'), total = 0, html = '';
+    var total = 0, html = '';
     kids.forEach(function(k, i){
+      var tier = +k.tier;
       var sub = BASE[tier], rows = [['　参加費（' + TIER[tier] + '）', BASE[tier], '']];
       if (k.pack === '1'){ sub += 2000; rows.push(['　はじめてキャンプパック', 2000, '']); }
       if (i > 0){ sub -= 2000; rows.push(['　兄弟姉妹割引', -2000, 'minus']); }
       total += sub;
-      html += '<li class="kidline"><span>' + (i+1) + '人目</span><span>' + yen(sub) + '</span></li>';
+      html += '<li class="kidline"><span>' + (i+1) + '人目（' + TIER[tier] + '）</span><span>' + yen(sub) + '</span></li>';
       html += rows.map(function(r){
         return '<li class="sub ' + r[2] + '"><span>' + r[0] + '</span><span>' + (r[1] < 0 ? '−' + yen(-r[1]) : yen(r[1])) + '</span></li>';
       }).join('');
@@ -959,7 +956,7 @@ footer .meta{color:#B7A794;line-height:1.9;}
     document.getElementById('t_total').textContent = yen(total);
   }
   function refresh(){ readKids(); renderKids(); calc(); }
-  document.getElementById('t_add').addEventListener('click', function(){ readKids(); if (kids.length < 4) kids.push({pack:'0'}); renderKids(); calc(); });
+  document.getElementById('t_add').addEventListener('click', function(){ readKids(); if (kids.length < 4) kids.push({tier: kids[kids.length-1].tier, pack:'0'}); renderKids(); calc(); });
   document.getElementById('t_del').addEventListener('click', function(){ readKids(); if (kids.length > 1) kids.pop(); renderKids(); calc(); });
   document.getElementById('tcalc').addEventListener('change', refresh);
   renderKids(); calc();

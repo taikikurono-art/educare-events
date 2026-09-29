@@ -508,16 +508,7 @@ footer .meta{color:#9DB0C0;line-height:1.9;}
 
     <div class="calc">
       <fieldset>
-        <legend>1. お子さまの区分</legend>
-        <div class="chips">
-          <label><input type="radio" name="s_tier" value="0" checked><span>会員</span></label>
-          <label><input type="radio" name="s_tier" value="1"><span>元会員</span></label>
-          <label><input type="radio" name="s_tier" value="2"><span>一般</span></label>
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>2. 割引（ご家庭であてはまるもの）</legend>
+        <legend>1. 割引（ご家庭であてはまるもの）</legend>
         <div class="chips">
           <label><input type="checkbox" id="s_early" checked><span>早期申込（11/15まで）</span></label>
         </div>
@@ -529,7 +520,7 @@ footer .meta{color:#9DB0C0;line-height:1.9;}
       </fieldset>
 
       <fieldset>
-        <legend>3. お子さまごとのプラン</legend>
+        <legend>2. お子さまごとの区分とプラン</legend>
         <div id="s_kids"></div>
         <div class="chips" style="margin-top:10px;">
           <label><button type="button" id="s_add" class="kidbtn">＋ お子さまを追加</button></label>
@@ -544,6 +535,7 @@ footer .meta{color:#9DB0C0;line-height:1.9;}
       <p class="calc-note">
         ※ お友達紹介とリピーターは、どちらか1つの適用です。早期申込と兄弟姉妹割引は重ねて使えます。<br>
         ※ 早期申込・紹介・リピーターの割引は、お子さまお一人ずつに適用して計算しています。<br>
+        ※ 区分（会員・元会員・一般）は、お子さまごとに選べます。ごきょうだいで区分がちがう場合もそのままお使いください。<br>
         ※ 兄弟姉妹割引（−2,000円）は、2人目以降のお子さまに自動で入ります。<br>
         ※ 年中のお子さまは「①雪遊びのみ」が対象です。②③は年長さん以上になります。<br>
         ※ 表示は目安です。正式な金額は、お申し込み後のご案内でお知らせします。
@@ -794,7 +786,7 @@ footer .meta{color:#9DB0C0;line-height:1.9;}
   var P = {1:[39800,43800,47800], 2:[48700,53600,58500], 3:[55200,60850,66500]};
   var NAME = {1:'①雪遊びのみ', 2:'②スキー＋雪遊び', 3:'③スキーのみ'};
   var TIER = ['会員','元会員','一般'];
-  var kids = [{plan:'1', wear:'0', exp:'0'}];
+  var kids = [{tier:'0', plan:'1', wear:'0', exp:'0'}];
   var box = document.getElementById('s_kids');
 
   function yen(n){ return n.toLocaleString('ja-JP') + '円'; }
@@ -808,6 +800,9 @@ footer .meta{color:#9DB0C0;line-height:1.9;}
     box.innerHTML = kids.map(function(k, i){
       var n = 'k'+i;
       return '<div class="kid"><h4>' + (i+1) + '人目のお子さま' + (i>0 ? '（兄弟姉妹割引 −2,000円）' : '') + '</h4>' +
+        '<div class="grp"><span class="t">区分</span><div class="chips">' +
+          chip(n+'_tier','0',k.tier,'会員') + chip(n+'_tier','1',k.tier,'元会員') + chip(n+'_tier','2',k.tier,'一般') +
+        '</div></div>' +
         '<div class="grp"><span class="t">プラン</span><div class="chips">' +
           chip(n+'_plan','1',k.plan,'①雪遊びのみ') + chip(n+'_plan','2',k.plan,'②スキー＋雪遊び') + chip(n+'_plan','3',k.plan,'③スキーのみ') +
         '</div></div>' +
@@ -827,15 +822,16 @@ footer .meta{color:#9DB0C0;line-height:1.9;}
   function readKids(){
     kids.forEach(function(k, i){
       var n = 'k'+i;
-      k.plan = v(n+'_plan'); k.wear = v(n+'_wear');
+      k.tier = v(n+'_tier'); k.plan = v(n+'_plan'); k.wear = v(n+'_wear');
       if (document.querySelector('input[name="'+n+'_exp"]')) k.exp = v(n+'_exp');
     });
   }
 
   function calc(){
-    var tier = +v('s_tier'), early = document.getElementById('s_early').checked, fr = v('s_fr');
+    var early = document.getElementById('s_early').checked, fr = v('s_fr');
     var total = 0, html = '';
     kids.forEach(function(k, i){
+      var tier = +k.tier;
       var sub = P[k.plan][tier], rows = [];
       rows.push(['　' + NAME[k.plan] + '（' + TIER[tier] + '）', P[k.plan][tier], '']);
       if (k.wear === '1'){ sub += 3000; rows.push(['　ウェアレンタル', 3000, '']); }
@@ -845,7 +841,7 @@ footer .meta{color:#9DB0C0;line-height:1.9;}
       if (fr === '2'){ sub -= 2000; rows.push(['　リピーター割引', -2000, 'minus']); }
       if (i > 0){ sub -= 2000; rows.push(['　兄弟姉妹割引', -2000, 'minus']); }
       total += sub;
-      html += '<li class="kidline"><span>' + (i+1) + '人目</span><span>' + yen(sub) + '</span></li>';
+      html += '<li class="kidline"><span>' + (i+1) + '人目（' + TIER[tier] + '）</span><span>' + yen(sub) + '</span></li>';
       html += rows.map(function(r){
         return '<li class="sub ' + r[2] + '"><span>' + r[0] + '</span><span>' + (r[1] < 0 ? '−' + yen(-r[1]) : yen(r[1])) + '</span></li>';
       }).join('');
@@ -858,7 +854,9 @@ footer .meta{color:#9DB0C0;line-height:1.9;}
   function refresh(){ readKids(); renderKids(); calc(); }
 
   document.getElementById('s_add').addEventListener('click', function(){
-    readKids(); if (kids.length < 4) kids.push({plan:'1', wear:'0', exp:'0'}); renderKids(); calc();
+    readKids();
+    if (kids.length < 4) kids.push({tier: kids[kids.length-1].tier, plan:'1', wear:'0', exp:'0'});
+    renderKids(); calc();
   });
   document.getElementById('s_del').addEventListener('click', function(){
     readKids(); if (kids.length > 1) kids.pop(); renderKids(); calc();
