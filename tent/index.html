@@ -231,6 +231,14 @@ header.bar{
 .chips input:checked + span{background:var(--moss);border-color:var(--moss);color:#fff;font-weight:700;}
 .chips input:focus-visible + span{outline:3px solid var(--terracotta);outline-offset:2px;}
 .chips input:disabled + span{opacity:.35;cursor:not-allowed;}
+.kid{border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:10px;background:var(--cream);}
+.kid h4{margin:0 0 10px;font-size:14px;color:var(--terracotta-deep);}
+.kid .grp > span.t{display:block;font-size:12.5px;color:var(--ink-faint);margin-bottom:6px;}
+.kidbtn{font-family:inherit;font-size:14px;cursor:pointer;background:var(--paper);border:2px solid var(--line);border-radius:999px;padding:8px 16px;color:var(--ink-soft);}
+.kidbtn:hover{border-color:var(--moss);color:var(--moss-deep);}
+.kidbtn:disabled{opacity:.4;cursor:not-allowed;}
+.calc-lines li.kidline{color:var(--ink);font-weight:700;border-top:1px dotted var(--line);margin-top:6px;padding-top:8px;}
+.calc-lines li.sub{padding-left:12px;font-size:13px;}
 .calc-out{background:var(--cream);border:2px solid var(--moss);border-radius:14px;padding:18px 20px;margin-top:4px;}
 .calc-lines{margin:0 0 12px;padding:0;list-style:none;font-size:14px;font-variant-numeric:tabular-nums;}
 .calc-lines li{display:flex;justify-content:space-between;gap:12px;padding:3px 0;color:var(--ink-soft);}
@@ -727,26 +735,21 @@ footer .meta{color:#B7A794;line-height:1.9;}
       </fieldset>
 
       <fieldset>
-        <legend>2. 寝袋</legend>
-        <div class="chips">
-          <label><input type="radio" name="t_pack" value="0" checked><span>持っている（または毛布とお昼寝布団で参加）</span></label>
-          <label><input type="radio" name="t_pack" value="1"><span>はじめてキャンプパックを借りる（+2,000円）</span></label>
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>3. 割引</legend>
-        <div class="chips">
-          <label><input type="checkbox" id="t_sib"><span>2人目以降のお子さま −2,000円</span></label>
+        <legend>2. お子さまごとの寝袋</legend>
+        <div id="t_kids"></div>
+        <div class="chips" style="margin-top:10px;">
+          <label><button type="button" id="t_add" class="kidbtn">＋ お子さまを追加</button></label>
+          <label><button type="button" id="t_del" class="kidbtn">− 減らす</button></label>
         </div>
       </fieldset>
 
       <div class="calc-out">
         <ul class="calc-lines" id="t_lines"></ul>
-        <div class="calc-total"><span class="lbl">お一人あたりの参加費</span><span class="val" id="t_total">—</span></div>
+        <div class="calc-total"><span class="lbl" id="t_totlbl">お一人あたりの参加費</span><span class="val" id="t_total">—</span></div>
       </div>
       <p class="calc-note">
         ※ 会員はJUMP UP・クスカにご在籍中の方、元会員は以前ご在籍だった方、またはeducareの宿泊イベントに参加したことがある方です。<br>
+        ※ 兄弟姉妹割引（−2,000円）は、2人目以降のお子さまに自動で入ります。<br>
         ※ 表示は目安です。正式な金額は、お申し込み後のご案内でお知らせします。
       </p>
     </div>
@@ -919,20 +922,47 @@ footer .meta{color:#B7A794;line-height:1.9;}
 <script>
 (function(){
   var BASE = [18000, 21000], TIER = ['会員','元会員'];
-  function v(n){ var el = document.querySelector('input[name="'+n+'"]:checked'); return el ? el.value : '0'; }
+  var kids = [{pack:'0'}];
+  var box = document.getElementById('t_kids');
   function yen(n){ return n.toLocaleString('ja-JP') + '円'; }
-  function calc(){
-    var tier = +v('t_tier'), total = BASE[tier], lines = [];
-    lines.push({t:'参加費（' + TIER[tier] + '）', v: total, cls:'base'});
-    if (v('t_pack') === '1'){ total += 2000; lines.push({t:'はじめてキャンプパック', v:2000}); }
-    if (document.getElementById('t_sib').checked){ total -= 2000; lines.push({t:'兄弟姉妹割引（2人目以降）', v:-2000, cls:'minus'}); }
-    document.getElementById('t_lines').innerHTML = lines.map(function(l){
-      return '<li class="'+(l.cls||'')+'"><span>'+l.t+'</span><span>'+(l.v<0?'−'+yen(-l.v):yen(l.v))+'</span></li>';
+  function v(n){ var el = document.querySelector('input[name="'+n+'"]:checked'); return el ? el.value : '0'; }
+  function chip(name, val, cur, label){
+    return '<label><input type="radio" name="'+name+'" value="'+val+'"'+(cur===val?' checked':'')+'><span>'+label+'</span></label>';
+  }
+  function renderKids(){
+    box.innerHTML = kids.map(function(k, i){
+      var n = 'tk'+i;
+      return '<div class="kid"><h4>' + (i+1) + '人目のお子さま' + (i>0 ? '（兄弟姉妹割引 −2,000円）' : '') + '</h4>' +
+        '<div class="grp"><span class="t">寝袋</span><div class="chips">' +
+          chip(n+'_pack','0',k.pack,'持っている（または毛布とお昼寝布団）') +
+          chip(n+'_pack','1',k.pack,'はじめてキャンプパックを借りる（+2,000円）') +
+        '</div></div></div>';
     }).join('');
+    document.getElementById('t_del').disabled = kids.length <= 1;
+    document.getElementById('t_add').disabled = kids.length >= 4;
+  }
+  function readKids(){ kids.forEach(function(k, i){ k.pack = v('tk'+i+'_pack'); }); }
+  function calc(){
+    var tier = +v('t_tier'), total = 0, html = '';
+    kids.forEach(function(k, i){
+      var sub = BASE[tier], rows = [['　参加費（' + TIER[tier] + '）', BASE[tier], '']];
+      if (k.pack === '1'){ sub += 2000; rows.push(['　はじめてキャンプパック', 2000, '']); }
+      if (i > 0){ sub -= 2000; rows.push(['　兄弟姉妹割引', -2000, 'minus']); }
+      total += sub;
+      html += '<li class="kidline"><span>' + (i+1) + '人目</span><span>' + yen(sub) + '</span></li>';
+      html += rows.map(function(r){
+        return '<li class="sub ' + r[2] + '"><span>' + r[0] + '</span><span>' + (r[1] < 0 ? '−' + yen(-r[1]) : yen(r[1])) + '</span></li>';
+      }).join('');
+    });
+    document.getElementById('t_lines').innerHTML = html;
+    document.getElementById('t_totlbl').textContent = kids.length > 1 ? 'ご家庭の合計（' + kids.length + '人分）' : 'お一人あたりの参加費';
     document.getElementById('t_total').textContent = yen(total);
   }
-  document.querySelectorAll('#tcalc input').forEach(function(i){ i.addEventListener('change', calc); });
-  calc();
+  function refresh(){ readKids(); renderKids(); calc(); }
+  document.getElementById('t_add').addEventListener('click', function(){ readKids(); if (kids.length < 4) kids.push({pack:'0'}); renderKids(); calc(); });
+  document.getElementById('t_del').addEventListener('click', function(){ readKids(); if (kids.length > 1) kids.pop(); renderKids(); calc(); });
+  document.getElementById('tcalc').addEventListener('change', refresh);
+  renderKids(); calc();
 })();
 </script>
 

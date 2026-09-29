@@ -127,6 +127,16 @@ header.bar{position:sticky;top:0;z-index:50;background:rgba(242,247,251,.94);bac
 .chips input:checked + span{background:var(--blue);border-color:var(--blue);color:#fff;font-weight:700;}
 .chips input:focus-visible + span{outline:3px solid var(--coral);outline-offset:2px;}
 .chips input:disabled + span{opacity:.35;cursor:not-allowed;}
+.kid{border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:10px;background:var(--snow);}
+.kid h4{margin:0 0 10px;font-size:14px;color:var(--blue-deep);}
+.kid .grp{margin-bottom:10px;}
+.kid .grp:last-child{margin-bottom:0;}
+.kid .grp > span.t{display:block;font-size:12.5px;color:var(--ink-faint);margin-bottom:6px;}
+.kidbtn{font-family:inherit;font-size:14px;cursor:pointer;background:var(--paper);border:2px solid var(--line);border-radius:999px;padding:8px 16px;color:var(--ink-soft);}
+.kidbtn:hover{border-color:var(--blue);color:var(--blue-deep);}
+.kidbtn:disabled{opacity:.4;cursor:not-allowed;}
+.calc-lines li.kidline{color:var(--ink);font-weight:700;border-top:1px dotted var(--line);margin-top:6px;padding-top:8px;}
+.calc-lines li.sub{padding-left:12px;font-size:13px;}
 .calc-out{background:var(--snow);border:2px solid var(--blue);border-radius:14px;padding:18px 20px;margin-top:4px;}
 .calc-lines{margin:0 0 12px;padding:0;list-style:none;font-size:14px;font-variant-numeric:tabular-nums;}
 .calc-lines li{display:flex;justify-content:space-between;gap:12px;padding:3px 0;color:var(--ink-soft);}
@@ -507,49 +517,34 @@ footer .meta{color:#9DB0C0;line-height:1.9;}
       </fieldset>
 
       <fieldset>
-        <legend>2. プラン</legend>
+        <legend>2. 割引（ご家庭であてはまるもの）</legend>
         <div class="chips">
-          <label><input type="radio" name="s_plan" value="1" checked><span>①雪遊びのみ</span></label>
-          <label><input type="radio" name="s_plan" value="2"><span>②スキー＋雪遊び</span></label>
-          <label><input type="radio" name="s_plan" value="3"><span>③スキーのみ</span></label>
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>3. スキーウェア</legend>
-        <div class="chips">
-          <label><input type="radio" name="s_wear" value="0" checked><span>持参する</span></label>
-          <label><input type="radio" name="s_wear" value="1"><span>レンタルする（+3,000円）</span></label>
-        </div>
-      </fieldset>
-
-      <fieldset id="s_expbox">
-        <legend>4. スキーの経験（②のプランの方）</legend>
-        <div class="chips">
-          <label><input type="radio" name="s_exp" value="0" checked><span>はじめて</span></label>
-          <label><input type="radio" name="s_exp" value="1"><span>経験がある（+3,000円）</span></label>
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>5. 割引（あてはまるもの）</legend>
-        <div class="chips">
-          <label><input type="checkbox" id="s_early" checked><span>早期申込（11/15まで）−2,000円</span></label>
-          <label><input type="checkbox" id="s_sib"><span>2人目以降のお子さま −2,000円</span></label>
+          <label><input type="checkbox" id="s_early" checked><span>早期申込（11/15まで）</span></label>
         </div>
         <div class="chips" style="margin-top:8px;">
           <label><input type="radio" name="s_fr" value="0" checked><span>紹介・リピーターなし</span></label>
-          <label><input type="radio" name="s_fr" value="1"><span>お友達紹介 −2,000円</span></label>
-          <label><input type="radio" name="s_fr" value="2"><span>リピーター −2,000円</span></label>
+          <label><input type="radio" name="s_fr" value="1"><span>お友達紹介</span></label>
+          <label><input type="radio" name="s_fr" value="2"><span>リピーター</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>3. お子さまごとのプラン</legend>
+        <div id="s_kids"></div>
+        <div class="chips" style="margin-top:10px;">
+          <label><button type="button" id="s_add" class="kidbtn">＋ お子さまを追加</button></label>
+          <label><button type="button" id="s_del" class="kidbtn">− 減らす</button></label>
         </div>
       </fieldset>
 
       <div class="calc-out">
         <ul class="calc-lines" id="s_lines"></ul>
-        <div class="calc-total"><span class="lbl">お一人あたりの参加費</span><span class="val" id="s_total">—</span></div>
+        <div class="calc-total"><span class="lbl" id="s_totlbl">お一人あたりの参加費</span><span class="val" id="s_total">—</span></div>
       </div>
       <p class="calc-note">
         ※ お友達紹介とリピーターは、どちらか1つの適用です。早期申込と兄弟姉妹割引は重ねて使えます。<br>
+        ※ 早期申込・紹介・リピーターの割引は、お子さまお一人ずつに適用して計算しています。<br>
+        ※ 兄弟姉妹割引（−2,000円）は、2人目以降のお子さまに自動で入ります。<br>
         ※ 年中のお子さまは「①雪遊びのみ」が対象です。②③は年長さん以上になります。<br>
         ※ 表示は目安です。正式な金額は、お申し込み後のご案内でお知らせします。
       </p>
@@ -799,30 +794,77 @@ footer .meta{color:#9DB0C0;line-height:1.9;}
   var P = {1:[39800,43800,47800], 2:[48700,53600,58500], 3:[55200,60850,66500]};
   var NAME = {1:'①雪遊びのみ', 2:'②スキー＋雪遊び', 3:'③スキーのみ'};
   var TIER = ['会員','元会員','一般'];
-  function v(n){ var el = document.querySelector('input[name="'+n+'"]:checked'); return el ? el.value : '0'; }
+  var kids = [{plan:'1', wear:'0', exp:'0'}];
+  var box = document.getElementById('s_kids');
+
   function yen(n){ return n.toLocaleString('ja-JP') + '円'; }
-  function calc(){
-    var plan = v('s_plan'), tier = +v('s_tier');
-    var lines = [], total = P[plan][tier];
-    lines.push({t: NAME[plan] + '（' + TIER[tier] + '）', v: total, cls:'base'});
-    if (v('s_wear') === '1'){ total += 3000; lines.push({t:'ウェアレンタル', v:3000}); }
-    var expBox = document.getElementById('s_expbox');
-    var isCombo = plan === '2';
-    expBox.style.opacity = isCombo ? '1' : '.4';
-    Array.prototype.forEach.call(expBox.querySelectorAll('input'), function(i){ i.disabled = !isCombo; });
-    if (isCombo && v('s_exp') === '1'){ total += 3000; lines.push({t:'経験者オプション（リフト券込み）', v:3000}); }
-    if (document.getElementById('s_early').checked){ total -= 2000; lines.push({t:'早期申込割引', v:-2000, cls:'minus'}); }
-    var fr = v('s_fr');
-    if (fr === '1'){ total -= 2000; lines.push({t:'お友達紹介割引', v:-2000, cls:'minus'}); }
-    if (fr === '2'){ total -= 2000; lines.push({t:'リピーター割引', v:-2000, cls:'minus'}); }
-    if (document.getElementById('s_sib').checked){ total -= 2000; lines.push({t:'兄弟姉妹割引（2人目以降）', v:-2000, cls:'minus'}); }
-    document.getElementById('s_lines').innerHTML = lines.map(function(l){
-      return '<li class="'+(l.cls||'')+'"><span>'+l.t+'</span><span>'+(l.v<0?'−'+yen(-l.v):yen(l.v))+'</span></li>';
+  function v(n){ var el = document.querySelector('input[name="'+n+'"]:checked'); return el ? el.value : '0'; }
+
+  function chip(name, val, cur, label){
+    return '<label><input type="radio" name="'+name+'" value="'+val+'"'+(cur===val?' checked':'')+'><span>'+label+'</span></label>';
+  }
+
+  function renderKids(){
+    box.innerHTML = kids.map(function(k, i){
+      var n = 'k'+i;
+      return '<div class="kid"><h4>' + (i+1) + '人目のお子さま' + (i>0 ? '（兄弟姉妹割引 −2,000円）' : '') + '</h4>' +
+        '<div class="grp"><span class="t">プラン</span><div class="chips">' +
+          chip(n+'_plan','1',k.plan,'①雪遊びのみ') + chip(n+'_plan','2',k.plan,'②スキー＋雪遊び') + chip(n+'_plan','3',k.plan,'③スキーのみ') +
+        '</div></div>' +
+        '<div class="grp"><span class="t">スキーウェア</span><div class="chips">' +
+          chip(n+'_wear','0',k.wear,'持参する') + chip(n+'_wear','1',k.wear,'レンタル（+3,000円）') +
+        '</div></div>' +
+        (k.plan === '2' ?
+        '<div class="grp"><span class="t">スキーの経験</span><div class="chips">' +
+          chip(n+'_exp','0',k.exp,'はじめて') + chip(n+'_exp','1',k.exp,'経験がある（+3,000円）') +
+        '</div></div>' : '') +
+      '</div>';
     }).join('');
+    document.getElementById('s_del').disabled = kids.length <= 1;
+    document.getElementById('s_add').disabled = kids.length >= 4;
+  }
+
+  function readKids(){
+    kids.forEach(function(k, i){
+      var n = 'k'+i;
+      k.plan = v(n+'_plan'); k.wear = v(n+'_wear');
+      if (document.querySelector('input[name="'+n+'_exp"]')) k.exp = v(n+'_exp');
+    });
+  }
+
+  function calc(){
+    var tier = +v('s_tier'), early = document.getElementById('s_early').checked, fr = v('s_fr');
+    var total = 0, html = '';
+    kids.forEach(function(k, i){
+      var sub = P[k.plan][tier], rows = [];
+      rows.push(['　' + NAME[k.plan] + '（' + TIER[tier] + '）', P[k.plan][tier], '']);
+      if (k.wear === '1'){ sub += 3000; rows.push(['　ウェアレンタル', 3000, '']); }
+      if (k.plan === '2' && k.exp === '1'){ sub += 3000; rows.push(['　経験者オプション', 3000, '']); }
+      if (early){ sub -= 2000; rows.push(['　早期申込割引', -2000, 'minus']); }
+      if (fr === '1'){ sub -= 2000; rows.push(['　お友達紹介割引', -2000, 'minus']); }
+      if (fr === '2'){ sub -= 2000; rows.push(['　リピーター割引', -2000, 'minus']); }
+      if (i > 0){ sub -= 2000; rows.push(['　兄弟姉妹割引', -2000, 'minus']); }
+      total += sub;
+      html += '<li class="kidline"><span>' + (i+1) + '人目</span><span>' + yen(sub) + '</span></li>';
+      html += rows.map(function(r){
+        return '<li class="sub ' + r[2] + '"><span>' + r[0] + '</span><span>' + (r[1] < 0 ? '−' + yen(-r[1]) : yen(r[1])) + '</span></li>';
+      }).join('');
+    });
+    document.getElementById('s_lines').innerHTML = html;
+    document.getElementById('s_totlbl').textContent = kids.length > 1 ? 'ご家庭の合計（' + kids.length + '人分）' : 'お一人あたりの参加費';
     document.getElementById('s_total').textContent = yen(total);
   }
-  document.querySelectorAll('#calc input').forEach(function(i){ i.addEventListener('change', calc); });
-  calc();
+
+  function refresh(){ readKids(); renderKids(); calc(); }
+
+  document.getElementById('s_add').addEventListener('click', function(){
+    readKids(); if (kids.length < 4) kids.push({plan:'1', wear:'0', exp:'0'}); renderKids(); calc();
+  });
+  document.getElementById('s_del').addEventListener('click', function(){
+    readKids(); if (kids.length > 1) kids.pop(); renderKids(); calc();
+  });
+  document.getElementById('calc').addEventListener('change', refresh);
+  renderKids(); calc();
 })();
 </script>
 
